@@ -1,0 +1,260 @@
+<html lang="en">
+<title>Result Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: "Lato", sans-serif}
+.mySlides {display: none}
+
+h1{
+  font-size: 35px;
+  color: #fff;
+
+  text-transform: uppercase;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 15px;
+}
+table{
+  width:100%;
+  table-layout: fixed;
+  background-color:#0099cc;
+}
+.tbl-header{
+  background-color: rgba(255,255,255,0.3);
+    border: 5px solid white;
+ }
+.tbl-content{
+  height:300px;
+  overflow-x:auto;
+  margin-top: 0px;
+  border: 5px solid white;
+}
+th{
+  font-size: 22px;
+  padding: 20px 15px;
+  text-align: left;
+  font-weight: 500;
+  color: #fff;
+  text-transform: uppercase;
+}
+td{
+  padding: 15px;
+  text-align: left;
+  vertical-align:middle;
+  font-weight: 500;
+  font-size: 22px;
+  color: #fff;
+ text-transform: uppercase;
+
+}
+
+
+/* demo styles */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+body{
+  background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+  background: linear-gradient(to bottom,  #33ccff, #00bfff);
+  font-family: 'Roboto', sans-serif;
+}
+section{
+  margin: 50px;
+}
+
+
+/* follow me template */
+.made-with-love {
+  margin-top: 40px;
+  padding: 10px;
+  clear: left;
+  text-align: center;
+  font-size: 10px;
+  font-family: arial;
+  color: #fff;
+}
+.made-with-love i {
+  font-style: normal;
+  color: #F50057;
+  font-size: 14px;
+  position: relative;
+  top: 2px;
+}
+.made-with-love a {
+  color: #fff;
+  text-decoration: none;
+}
+.made-with-love a:hover {
+  text-decoration: underline;
+}
+
+
+/* for custom scrollbar for webkit browser*/
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+</style>
+<body >
+ <div class="w3-bar w3-blue w3-card" style="" >
+    <b style="font-size:30px; padding:15px;">Crop Predictor</b>
+    <div style=" float:right;margin-left:auto; margin-right:0;">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="/" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+    <div class="w3-dropdown-hover w3-hide-small">
+    </div>
+        <a href="aboutUs" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT US</a>
+       {% if user %}
+       <a href="signup" class="w3-bar-item w3-button w3-padding-large">{{user}}</a>
+ <a href="/accounts/logout/" class="w3-bar-item w3-button w3-padding-large">LOGOUT</a>
+
+
+       {% else %}
+
+    <a href="signin" class="w3-bar-item w3-button w3-padding-large">SIGN IN</a>
+    <a href="signup" class="w3-bar-item w3-button w3-padding-large">SIGN UP</a>
+  {% endif %}
+
+    </div>
+ </div>
+</div>
+
+
+
+<section>
+  <!--for demo wrap-->
+  <h1>RESULTS</h1>
+   {% for crop,per,info in result %}
+  <div class="tbl-header">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <thead>
+        <tr>
+          <th style="font-size:20">Code</th>
+          <th style="font-size:20">Details</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+
+  <div class="tbl-content">
+
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+        <tr>
+          <td>Name of the Crop</td>
+          <td>  {{ crop }} </td>
+        </tr>
+        <tr>
+          <td>Percentage Confidence</td>
+          <td> {{ per }} </td>
+        </tr>
+        {% if info %}
+      {% for key,value in info.items %}
+         <tr>
+          <td>{{ key }}</td>
+          <td> {{ value }} </td>
+        </tr>
+      {% endfor %}
+        {% else %}
+         <tr>
+          <td>Seed rate</td>
+          <td>ABC</td>
+        </tr>
+        <tr>
+          <td>Time of sowing</td>
+          <td>XYZ</td>
+        </tr>
+        <tr>
+          <td>Spacing</td>
+          <td>NMN</td>
+        </tr>
+        <tr>
+          <td>Time of sowing/planting</td>
+          <td>MNM </td>
+        </tr>
+        <tr>
+          <td>Method of Sowing</td>
+          <td>VCV</td>
+        </tr>
+        <tr>
+          <td>Nutrients Recommendation</td>
+          <td>XYZ</td>
+        </tr>
+        <tr>
+          <td>Weed Management Practice</td>
+          <td>POQ</td>
+        </tr>
+        <tr>
+          <td>Insect Management</td>
+          <td>GHJ</td>
+        </tr>
+        <tr>
+          <td>Disease Management</td>
+          <td>ERT</td>
+        </tr>
+        <tr>
+          <td>Economic Yield</td>
+          <td>111</td>
+        </tr>
+
+
+      {% endif %}
+
+      </tbody>
+    </table>
+
+  </div>
+  <br><br>
+     {% endfor %}
+</section>
+
+
+
+
+    <!-- The Contact Section -->
+    <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+      <h2 class="w3-wide w3-center" style="font-size:20">CONTACT</h2>
+      <div class="w3-row w3-padding-32">
+        <div class="w3-col m6 w3-large w3-margin-bottom">
+          <i class="fa fa-map-marker" style="width:30px"></i> Pantnagar, Uttrakhand<br>
+          <i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
+          <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
+        </div>
+        <div class="w3-col m6">
+          <form action="/action_page.php" target="_blank">
+            <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+              <div class="w3-half">
+                <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+              </div>
+              <div class="w3-half">
+                <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+              </div>
+            </div>
+            <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+            <button class="w3-button w3-green w3-section w3-right" type="submit">SEND</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-16 w3-center w3-opacity w3-light-grey w3-xlarge">
+      <i class="fa fa-facebook-official w3-hover-opacity"></i>
+      <i class="fa fa-instagram w3-hover-opacity"></i>
+      <i class="fa fa-snapchat w3-hover-opacity"></i>
+      <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+      <i class="fa fa-twitter w3-hover-opacity"></i>
+      <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </footer>
+
+    </body>
+    </html>

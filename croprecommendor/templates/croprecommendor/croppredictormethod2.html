@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Crop Predictor</title>
+     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+</head>
+<style>
+    .bgimg {
+    background-image: url("{% static 'croprecommendor/images/cp1.jpg' %}");
+background-size: 100% 100%;
+background-repeat:no-repeat;
+}
+</style>
+
+<body class="bgimg">
+ <div class="w3-bar w3-blue w3-card" style="" >
+    <b style="font-size:30px; padding:15px;">Crop Recommendation</b>
+    <div style=" float:right;margin-left:auto; margin-right:0;">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="/" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+    <div class="w3-dropdown-hover w3-hide-small">
+    </div>
+        <a href="aboutUs" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT US</a>
+       {% if user %}
+       <a href="signup" class="w3-bar-item w3-button w3-padding-large">{{user}}</a>
+ <a href="/accounts/logout/" class="w3-bar-item w3-button w3-padding-large">LOGOUT</a>
+
+
+       {% else %}
+
+    <a href="signin" class="w3-bar-item w3-button w3-padding-large">SIGN IN</a>
+    <a href="signup" class="w3-bar-item w3-button w3-padding-large">SIGN UP</a>
+  {% endif %}
+
+    </div>
+ </div>
+</div>
+
+
+ <div style=" margin-left:40px;
+ margin-top:40px;
+  width: 60%;
+
+  padding: 15px; background-color:white;border-radius: 25px;
+  box-shadow:         0px 8px 18px -6px #AABBCC; ">
+<form method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+      <div class="form-group">
+    <label for="ph">Ph of soil</label>
+    <input type="text" class="form-control" id="ph" name="ph" aria-describedby="emailHelp" placeholder="Enter ph of soil">
+          <small class="form-text text-muted">
+Enter the ph of soil as per soil tests.</small>
+     </div>
+
+        <div class="form-group">
+    <label for="ph">Temprature  (in Celcius)</label>
+    <input type="text" class="form-control" id="temperature" name="temperature" aria-describedby="emailHelp" placeholder="Enter Average temprature during a season.">
+   <small class="form-text text-muted">
+Average of temprature of day and night during the season</small>
+     </div>
+
+        <div class="form-group">
+    <label for="ph">Humidity</label>
+    <input type="text" class="form-control" id="humidity" name="humidity" aria-describedby="emailHelp" placeholder="Enter avreage humidity.">
+
+        </div>
+
+        <div class="form-group">
+    <label for="ph">Rainfall (in cm)</label>
+    <input type="text" class="form-control" id="rainfall" name="rainfall" aria-describedby="emailHelp" placeholder="Enter average rainfall">
+
+     </div>
+        <br>
+      <input type="submit" style="align:right">
+    <br>
+</form>
+
+ </div>
+<br><br><br><br><br>
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+      <i class="fa fa-facebook-official w3-hover-opacity"></i>
+      <i class="fa fa-instagram w3-hover-opacity"></i>
+      <i class="fa fa-snapchat w3-hover-opacity"></i>
+      <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+      <i class="fa fa-twitter w3-hover-opacity"></i>
+      <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </footer>
+
+</body>
+</html>

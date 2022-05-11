@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select Approach</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Crop Predictor</title>
+     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+</head>
+<style>
+html{
+100%
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  padding: 0;
+}
+  .bgimg {
+    background-image: url("{% static 'croprecommendor/images/crop6.jpg' %}");
+background-size: 100% 100%;
+background-repeat:no-repeat;
+}
+
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 300px;
+  margin:60px;
+  padding:10px;
+  background-color:white;
+  border-radius: 25px;
+  box-shadow: 0px 4px 4px 4px #AABBCC;
+  height: 250px;
+   transition: transform 1s;
+  width: 300px;
+ display: block;
+
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+.column:hover {
+  -ms-transform: scale(1.2); /* IE 9 */
+  -webkit-transform: scale(1.2); /* Safari 3-8 */
+  transform: scale(1.2);
+}
+</style>
+
+<body class="bgimg">
+ <div class="w3-bar w3-blue w3-card" style="" >
+    <b style="font-size:30px; padding:15px;">Crop Recommendation</b>
+    <div style=" float:right;margin-left:auto; margin-right:0;">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="/" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+    <div class="w3-dropdown-hover w3-hide-small">
+    </div>
+        <a href="aboutUs" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT US</a>
+       {% if user %}
+       <a href="signup" class="w3-bar-item w3-button w3-padding-large">{{user}}</a>
+ <a href="/accounts/logout/" class="w3-bar-item w3-button w3-padding-large">LOGOUT</a>
+       {% else %}
+
+    <a href="signin" class="w3-bar-item w3-button w3-padding-large">SIGN IN</a>
+    <a href="signup" class="w3-bar-item w3-button w3-padding-large">SIGN UP</a>
+  {% endif %}
+
+    </div>
+ </div>
+
+<div class="row" style="margin-top:50px;padding:50px;">
+
+          <div class="column" style="background-color:white;padding:auto;" onclick="location.href='cropPredictorMethod1';">
+              <h1 style="color: #33adff;">Method 1</h1>
+             <p style="font-size:18px;">Predicts Crops based on soil parameter.</p>
+      </div>
+
+  <div class="column" style="background-color:white;" onclick="location.href='cropPredictorMethod2';">
+<h1 style="color: #33adff;">Method 2</h1>
+     <p style="font-size:18px;">Predicts Crops based on parameters environmental factors.</p>
+  </div>
+  <div class="column" style="background-color:white;" onclick="location.href='cropPredictorMethod3';">
+   <h1 style="color: #33adff;">Method 3</h1>
+     <p style="font-size:18px;">Predicts Crops based on location.</p>
+  </div>
+</div>
+
+</body>
+</html>

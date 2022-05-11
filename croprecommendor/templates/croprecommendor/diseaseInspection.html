@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     {% load static %}
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <meta charset="UTF-8">
+    <title>Disease Inspection</title>
+</head>
+<style>
+    .bgimg {
+    background-image: url("{% static 'croprecommendor/images/di1.jpg' %}");
+background-size: 100% 100%;
+background-repeat:no-repeat;
+}
+.column {
+  float: left;
+  width: 40%;
+  padding: 5px;
+}
+.column2 {
+  float: left;
+  width: 60%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+<body class="bgimg">
+ <div class="w3-bar w3-green w3-card" >
+    <b style="font-size:30px; padding:15px;">Plant Disease Detection</b>
+    <div style=" float:right;margin-left:auto; margin-right:0;">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="/" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+    <div class="w3-dropdown-hover w3-hide-small">
+    </div>
+        <a href="aboutUs" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT US</a>
+       {% if user %}
+       <a href="signup" class="w3-bar-item w3-button w3-padding-large">{{user}}</a>
+ <a href="/accounts/logout/" class="w3-bar-item w3-button w3-padding-large">LOGOUT</a>
+
+
+       {% else %}
+
+    <a href="signin" class="w3-bar-item w3-button w3-padding-large">SIGN IN</a>
+    <a href="signup" class="w3-bar-item w3-button w3-padding-large">SIGN UP</a>
+  {% endif %}
+
+    </div>
+ </div>
+
+ <div style=" margin-left: auto;
+margin-right: 40px;
+ margin-top:40px;
+  width: 45%;
+  padding: 15px;
+  background-color:white;border-radius: 25px;
+  box-shadow:         0px 8px 18px -6px #AABBCC; ">
+<form method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+
+
+  <label for="img" style=""><h3>Select Image:</h3></label>
+   <input class="form-control-file" type="file" id="img" name="img" accept="image/*" style="margin-right:35% ;" >
+
+    <label for="dropdown" style=""><h3>Select Crop:</h3> </label>
+    <select id="dropdown" class="form-control" name="dropdown" style="">
+  <option value="apple">Apple</option>
+  <option value="tomato">Tomato</option>
+  <option value="potato">Potato</option>
+  <option value="wheat">Wheat</option>
+        <option value="rice">Rice</option>
+
+    </select>
+<br>
+  <input type="submit" class="btn btn-primary mb-2" style="align:right">
+
+
+</form>
+
+ </div>
+
+<div style=" margin-left: auto;
+margin-right: 40px;
+ margin-top:40px;
+  width: 55%;
+  padding: 15px;
+  background-color:white;border-radius: 25px;
+  box-shadow: 0px 8px 18px -6px #AABBCC;
+">
+    {% if result %}
+    <div class="row">
+        <div class="column">
+            <img src="{{ imgsrc }}" style=" border:5px solid white; border-radius: 25px;" width="250" height="300">
+        </div>
+        <div class="column2">
+            <p class="w3-monospace" style="font-size:15px;"><a href="{{ link }}">{{ result }}</a><br><br> {{ text }}</p>
+        </div>
+    </div>
+    {% else %}
+
+   <center> <p style="">Please Select a file.</p> </center>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+    {% endif %}
+
+</div>
+<br>
+<br>
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+      <i class="fa fa-facebook-official w3-hover-opacity"></i>
+      <i class="fa fa-instagram w3-hover-opacity"></i>
+      <i class="fa fa-snapchat w3-hover-opacity"></i>
+      <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+      <i class="fa fa-twitter w3-hover-opacity"></i>
+      <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </footer>
+
+
+</body>
+</html>

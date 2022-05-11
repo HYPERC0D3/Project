@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<Html lang="en">
+
+<head>{% load static%}
+<meta charset="UTF-8">
+  <title>Home Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+<style>
+body {font-family: 'Andika New Basic', sans-serif;}
+.mySlides {display: none}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top" >
+
+  <div class="w3-bar w3-green w3-card" >
+    <b style="font-size:30px; padding:15px;">CROP RECOMMENDATION SYSTEM</b>
+    <div style=" float:right;margin-left:auto; margin-right:0;">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+    <div class="w3-dropdown-hover w3-hide-small">
+      <button class="w3-padding-large w3-button" title="More">SERVICES <i class="fa fa-caret-down"></i></button>
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a href="selectApproach" class="w3-bar-item w3-button">Crop Recommendation</a>
+        <a href="weatherForecast" class="w3-bar-item w3-button">Weather Forecast</a>
+        <a href="diseaseInspection" class="w3-bar-item w3-button">Diseases Detection</a>
+        <a href="buy_crop" class="w3-bar-item w3-button">Buy Crops</a>
+        <a href="news" class="w3-bar-item w3-button">NEWS</a>
+      </div>
+
+    </div>
+        <a href="aboutUs" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT US</a>
+       {% if user %}
+       <a href="signup" class="w3-bar-item w3-button w3-padding-large">{{user}}</a>
+ <a href="/accounts/logout/" class="w3-bar-item w3-button w3-padding-large">LOGOUT</a>
+
+
+       {% else %}
+
+    <a href="signin" class="w3-bar-item w3-button w3-padding-large">SIGN IN</a>
+    <a href="signup" class="w3-bar-item w3-button w3-padding-large">SIGN UP</a>
+  {% endif %}
+
+</div>
+      </div>
+</div>
+
+    <img src="{% static 'croprecommendor/images/2.jpg' %}" style="width:100%">
+
+    <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:1200px" id="band">
+      <h2 class="w3-wide"><b>EXPLORE WITH US</b></h2>
+      <p class="w3-opacity"><i>We love nature</i></p>
+      <p class="w3-justify">We have created a crop recommendation website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
+        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <div class="w3-row w3-padding-32">
+        <div class="w3-quarter">
+
+          <input type="image" name="Name of image button" src="{% static 'croprecommendor/images/crop2.jpg' %}" alt="text"  style="width:50%">
+          <b><p style="font-size:18px;">Crop Recommendation</p></b>
+        </div>
+        <div class="w3-quarter">
+
+          <input type="image" name="Name of image button" src="{% static 'croprecommendor/images/weather2.jpg' %}" alt="text"  style="width:50%">
+          <b><p style="font-size:18px;">Weather Forecasting</p></b>
+          </div>
+        <div class="w3-quarter">
+
+          <input type="image" name="Name of image button" src="{% static 'croprecommendor/images/pest2.jpg' %}" alt="text"  style="width:50%">
+         <b><p style="font-size:18px;">Disease Prediction</p></b>
+        </div>
+
+        <div class="w3-quarter">
+
+          <input type="image" name="Name of image button" src="{% static 'croprecommendor/images/market2.jpg' %}" alt="text"  style="width:50%">
+          <b><p style="font-size:18px;">Marketing Information</p></b>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- The Contact Section -->
+    <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+      <h2 class="w3-wide w3-center">CONTACT</h2>
+      <div class="w3-row w3-padding-32">
+        <div class="w3-col m6 w3-large w3-margin-bottom">
+          <i class="fa fa-map-marker" style="width:30px"></i> Pantnagar, Uttrakhand<br>
+          <i class="fa fa-phone" style="width:30px"></i> Phone: +91 9027645455<br>
+          <i class="fa fa-envelope" style="width:30px"> </i> Email: lakshyagour10@gmail.com<br>
+        </div>
+        <div class="w3-col m6">
+          <form action="" >
+            <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+              <div class="w3-half">
+                <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+              </div>
+              <div class="w3-half">
+                <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+              </div>
+            </div>
+            <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+            <button class="w3-button w3-green w3-section w3-right" type="submit">SEND</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+      <i class="fa fa-facebook-official w3-hover-opacity"></i>
+      <i class="fa fa-instagram w3-hover-opacity"></i>
+      <i class="fa fa-snapchat w3-hover-opacity"></i>
+      <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+      <i class="fa fa-twitter w3-hover-opacity"></i>
+      <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </footer>
+
+
+    <script>
+    // Automatic Slideshow - change image every 4 seconds
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      myIndex++;
+      if (myIndex > x.length) {myIndex = 1}
+      x[myIndex-1].style.display = "block";
+      setTimeout(carousel, 4000);
+    }
+
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else {
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    var modal = document.getElementById('ticketModal');
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+    </script>
+
+    </body>
+    </Html>
